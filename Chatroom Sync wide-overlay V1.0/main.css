@@ -1,8 +1,8 @@
 :root {
   --panel-width: 920px;
-  --panel-height: 285px;
-  --panel-left: 40px;
-  --panel-top: 30px;
+  --panel-height: 400px;
+  --panel-left: 0px;
+  --panel-top: 0px;
 
   --font-family: "Consolas", "Cascadia Mono", "Courier New", monospace;
   --font-size: 16px;
@@ -40,8 +40,8 @@
 html,
 body {
   margin: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
   background: transparent;
 }
@@ -52,16 +52,22 @@ body {
 
 .cyber-chat-widget {
   position: fixed;
-  inset: 0;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: transparent;
   overflow: hidden;
   perspective: var(--panel-perspective);
 }
 
 .chat-panel {
-  position: absolute;
-  left: var(--panel-left);
-  top: var(--panel-top);
+  position: relative;
+  left: auto;
+  top: auto;
   width: var(--panel-width);
   height: var(--panel-height);
   display: grid;
