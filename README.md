@@ -1,1 +1,1 @@
-# Streamlabs_chatroom_css
+# 注意! 每個資料夾都代表一個聊天室模板
