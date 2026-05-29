@@ -70,6 +70,18 @@ OneComme 專用版本。
 
 ---
 
+## 預覽畫面
+
+### 直式版本
+
+![Vertical Version](images/Chatroom_sync_V1.0.png)
+
+### 橫式版本
+
+![Wide Version](images/image.png)
+
+---
+
 ## 自訂修改
 
 本專案提供完整原始碼。
