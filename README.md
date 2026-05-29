@@ -1,8 +1,10 @@
 # Chatroom Template
 
-終端機風格直播聊天室模板集合。
+終端機風格直播聊天室模板。
 
-專為直播使用設計，支援 Streamlabs 與 OneComme，風格靈感來自終端機、系統控制台與科幻通訊介面。
+原本只是因為聊天室模板搞丟了，所以乾脆重做一份，最後順手整理後公開到 GitHub。
+
+目前提供 Streamlabs 與 OneComme 9.0 版本，並包含直式與橫式版型。
 
 ---
 
@@ -11,11 +13,14 @@
 - 終端機風格介面
 - 支援 Streamlabs
 - 支援 OneComme 9.0
-- 直式聊天室版型
-- 橫式 Wide Overlay 版型
-- 無外部依賴
-- 輕量化設計
-- 可自由修改與擴充
+- 提供直式聊天室版型
+- 提供橫式 Wide Overlay 版型
+- 支援聊天室徽章顯示
+- 支援 Twitch / YouTube 表情顯示
+- 自動限制聊天室訊息數量
+- 支援聊天室清除事件
+- 支援訊息刪除事件
+- 開放原始碼，可自行修改
 
 ---
 
@@ -23,30 +28,19 @@
 
 ### Chatroom Sync V1.0
 
-標準終端機風格聊天室。
+標準直式聊天室。
 
 支援平台：
 
 - Streamlabs
-
----
 
 ### Chatroom Sync wide-overlay V1.0
 
 適合遊戲直播使用的橫式版型。
 
-推薦用於：
-
-- FPS 遊戲
-- Helldivers 2
-- Euro Truck Simulator 2
-- 一般遊戲直播
-
 支援平台：
 
 - Streamlabs
-
----
 
 ### onecomme Chatroom Sync V1.0
 
@@ -63,7 +57,7 @@ OneComme 專用版本。
 ### Streamlabs
 
 1. 下載需要使用的模板資料夾
-2. 將 HTML、CSS、JS 匯入 Streamlabs
+2. 將對應檔案匯入 Streamlabs
 3. 設定 Browser Source 或 Custom Widget
 4. 完成
 
@@ -80,30 +74,20 @@ OneComme 專用版本。
 
 本專案提供完整原始碼。
 
-若具備 HTML、CSS、JavaScript 基礎，
-可自行修改樣式與功能，例如：
+若具備 HTML、CSS、JavaScript 基礎，可自行修改：
 
-- 顏色
 - 字體
-- 動畫
+- 顏色
+- 動畫效果
 - 版面配置
 
-本專案目前未提供圖形化設定介面，
-所有修改需直接編輯原始碼。
+目前未提供圖形化設定介面，所有修改需直接編輯原始碼。
+
 ---
 
 ## 授權條款
 
 本專案採用 MIT License 授權。
-
-你可以自由：
-
-- 使用
-- 修改
-- 散佈
-- 商業使用
-
-但請保留原始授權聲明。
 
 詳細內容請參閱 LICENSE 檔案。
 
@@ -117,7 +101,7 @@ GitHub：
 
 https://github.com/akira6286
 
-如果你喜歡這個專案，歡迎幫忙點個 Star ⭐
+如果這個專案對你有幫助，歡迎幫忙點個 Star ⭐
 
 ---
 
@@ -130,4 +114,7 @@ https://github.com/akira6286
 - 支援 OneComme 9.0
 - 提供直式版型
 - 提供橫式 Wide Overlay 版型
-- 修正 Twitch 系統訊息顯示問題
+- 支援聊天室徽章顯示
+- 支援 Twitch / YouTube 表情顯示
+- 支援聊天室清除事件
+- 支援訊息刪除事件
