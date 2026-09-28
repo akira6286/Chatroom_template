@@ -1,0 +1,41 @@
+/* Streamlabs Chat Box → CSS. Transparent canvas and clear water bubbles. */
+:root{--bubble-width:290px;--message-size:24px;--name-size:18px;--float-seconds:26s}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:transparent!important;font-family:"Microsoft JhengHei","PingFang TC",sans-serif}
+#log{position:fixed;inset:0;overflow:hidden;pointer-events:none;background:transparent}
+#log>.chat-message{
+  position:absolute;left:var(--x,0px);bottom:0;width:var(--width,290px);
+  padding:var(--pad-y,48px) var(--pad-x,34px);min-height:var(--height,230px);max-height:80vh;
+  display:flex;flex-direction:column;justify-content:center;
+  border-radius:49% 51% 50% 50% / 50% 48% 52% 50%;
+  border:1.5px solid rgba(218,248,255,.95);
+  background:radial-gradient(ellipse at 28% 14%,rgba(255,255,255,.55),transparent 30%),radial-gradient(ellipse at 75% 92%,rgba(188,241,248,.18),transparent 44%),rgba(242,253,255,.34);
+  box-shadow:inset 2px 3px 5px rgba(255,255,255,.85),inset -2px -3px 7px rgba(165,221,233,.3),0 0 0 1px rgba(255,255,255,.23);
+  color:#15394c;text-align:center;overflow:hidden;overflow-wrap:anywhere;
+  scale:var(--depth-scale,1);transform-origin:center bottom;z-index:var(--depth-layer,3);animation:float-up calc(var(--float-seconds) * var(--depth-speed,1)) linear both;animation-delay:var(--delay,0s);will-change:transform,opacity;
+}
+.chat-message::before{
+  content:"";position:absolute;left:17%;top:8%;width:37%;height:22%;
+  border-top:3px solid rgba(255,255,255,.95);border-radius:50%;
+  transform:rotate(-28deg);filter:drop-shadow(0 1px 1px rgba(169,218,232,.24));
+}
+.chat-message::after{
+  content:"";position:absolute;right:12%;bottom:10%;width:25%;height:15%;
+  border-bottom:2px solid rgba(255,255,255,.75);border-radius:50%;transform:rotate(-30deg);
+}
+.chat-name{display:flex;align-items:center;justify-content:center;gap:6px;font-size:var(--name-size);font-weight:600;line-height:1.5;margin-bottom:10px;color:#17445c;text-shadow:0 1px 2px #fff,0 0 5px #fff}
+.chat-name .name{color:#17445c!important;font-weight:800}
+.badges{display:inline-flex;align-items:center;gap:4px}
+.badges img,.badge{height:18px;width:auto;vertical-align:middle}
+.chat-text{font-size:var(--message-size);font-weight:700;line-height:1.5;color:#15394c;text-shadow:0 1px 2px #fff,1px 0 2px #fff,-1px 0 2px #fff,0 -1px 2px #fff;white-space:pre-wrap}
+.chat-text img{max-height:36px;max-width:100%;vertical-align:middle}
+.chat-text .emote{display:inline-block;background-repeat:no-repeat;background-position:center;background-size:contain;padding:0 .1em}
+.chat-text .emote img{opacity:0}
+@keyframes float-up{0%{transform:translate3d(0,110%,0);opacity:0}8%{opacity:var(--depth-opacity,1)}45%{transform:translate3d(var(--sway,16px),calc(-.45 * var(--travel)),0)}90%{opacity:var(--depth-opacity,1)}100%{transform:translate3d(0,calc(-1 * var(--travel)),0);opacity:0}}
+@media(max-width:600px){:root{--bubble-width:220px;--message-size:20px;--name-size:16px}#log>.chat-message{padding:var(--pad-y,36px) var(--pad-x,24px);min-height:var(--height,180px)}}
+@media(prefers-reduced-motion:reduce){#log>.chat-message{animation:none;transform:none;bottom:var(--rest,10%);opacity:var(--depth-opacity,1);will-change:auto}}
+
+/* Distance changes the whole bubble, without adding empty space around text. */
+#log>.chat-message[data-depth="far"]{--depth-scale:.76;--depth-opacity:.86;--depth-speed:1.3;--depth-layer:1}
+#log>.chat-message[data-depth="middle"]{--depth-scale:.9;--depth-opacity:.94;--depth-speed:1.12;--depth-layer:2}
+#log>.chat-message[data-depth="near"]{--depth-scale:1;--depth-opacity:1;--depth-speed:1;--depth-layer:3}
